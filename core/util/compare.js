@@ -37,7 +37,9 @@ function compareImage (referencePath, testPath, resembleOutputSettings) {
     }
 
     resemble.outputSettings(resembleOutputSettings || {});
-    resemble(referencePath).compareTo(testPath)
+    resemble(referencePath)
+      .compareTo(testPath)
+      .ignoreAntialiasing()
       .onComplete(function (data) {
         resolve(data);
       });
